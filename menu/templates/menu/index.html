@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load menu_tags %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main menu</title>
+    </head>
+    <body>
+        {% if menus %}
+            {% for menu in menus %}
+                <h3><a href='{{ menu }}'>{{ menu.name }}</a></h3>
+            {% endfor %}
+        {% else %}
+            {% get_submenu menu_name item_name %}
+            <button onclick="goBack()">Back</button>
+        {% endif %}
+    </body>
+</html>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
