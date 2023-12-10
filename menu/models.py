@@ -45,17 +45,27 @@ class MenuItem(models.Model):
                     'Пункт не может быть своим же пунктом/подменю!'
                 )
 
-            children = list(MenuItem.objects.filter(parent__name=self.name))
-            parent = self.parent.parent
+            menu_items = MenuItem.objects.all()
+            children = menu_items.filter(parent__name=self.name)
 
-            if parent in children:
+            if children and children[0].menu.name != self.menu.name:
                 raise ValidationError(
-                    f'{self.name} не может быть подпунктом {parent.name}!'
+                    f'"{self.name}" не может быть подпунктом меню "{self.menu}", '
+                    f'так как подпункты текущего пункта относятся к меню "{children[0].menu.name}".'
                 )
-            if parent and self.name == parent.name:
-                raise ValidationError(
-                    f'{self.name} не может быть подпунктом {self.parent}!'
-                )
+
+            def validate(child, parent):
+                parent = parent.parent
+
+                if parent:
+                    if parent.name == self.name:
+                        raise ValidationError(f'"{self.name}" не может быть подпунктом "{self.parent}"!')
+                    elif parent not in children:
+                        validate(child, parent)
+                    elif parent in children:
+                        raise ValidationError(f'"{self.name}" не может быть подпунктом "{self.parent}"!')
+
+            validate(self.name, self.parent)
 
     class Meta:
         ordering = ['id']
