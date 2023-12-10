@@ -11,8 +11,13 @@
                 <li><a href='{{ menu }}'>{{ menu.name }}</a></li>
             {% endfor %}
         {% elif menu_name %}
+            ---------------------------------------------------------
             {% get_submenu menu_name item_name %}
-            <button onclick="goBack()">Back</button>
+            ---------------------------------------------------------
+            <li><a href='{{ menu_name }}'>На главную страницу текущего меню</a></li>
+            <li><a href='/'>На главную страницу</a></li>
+            <li><button onclick="goBack()">Назад</button></li>
+            ---------------------------------------------------------
         {% else %}
             <li>Hello world!</li>
             <li><a href='/admin'>Создать меню</a></li>
