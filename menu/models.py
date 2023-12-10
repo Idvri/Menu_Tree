@@ -28,7 +28,7 @@ class MenuItem(models.Model):
             raise ValidationError(
                 'Имя пункта меню также должно быть уникальным по отношению к элементам основного меню.'
             )
-        if self.parent.menu != self.menu:
+        if self.parent and self.parent.menu != self.menu:
             raise ValidationError(
                 f'В качестве подменю может быть только тот пункт/подменю, '
                 f'основным меню которого является "{self.menu}"!'
