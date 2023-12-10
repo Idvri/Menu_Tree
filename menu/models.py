@@ -26,7 +26,7 @@ class MenuItem(models.Model):
     def clean(self):
         if Menu.objects.filter(name=self.name).exists():
             raise ValidationError(
-                'Имя пункта меню также должно быть уникальным по отношению к элементам основного меню.'
+                'Название пункта меню также должно быть уникальным по отношению к названиям элементов основного меню.'
             )
         if self.parent and self.parent.menu != self.menu:
             raise ValidationError(
