@@ -9,6 +9,12 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
+    def clean(self):
+        if MenuItem.objects.filter(name=self.name).exists():
+            raise ValidationError(
+                'Название основного меню также должно быть уникальным по отношению к названиям пунктов/подменю.'
+            )
+
     class Meta:
         ordering = ['id']
         verbose_name = 'Меню'
@@ -50,10 +56,6 @@ class MenuItem(models.Model):
                 raise ValidationError(
                     f'{self.name} не может быть подпунктом {self.parent}!'
                 )
-
-    def save(self, *args, **kwargs):
-        self.clean()
-        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['id']
