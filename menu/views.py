@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from menu.models import Menu, Item
+from menu.models import Menu
 
 
 # Create your views here.

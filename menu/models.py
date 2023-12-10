@@ -14,10 +14,10 @@ class Menu(models.Model):
         verbose_name_plural = 'Меню'
 
 
-class Item(models.Model):
+class MenuItem(models.Model):
     name = models.CharField('Название', max_length=50, unique=True)
-    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='menu_items')
-    item_parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name
