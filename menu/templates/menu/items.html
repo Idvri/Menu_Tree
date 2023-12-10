@@ -1,9 +1,7 @@
-<ul>
-    {% for item in items %}
-        {% if item.name %}
-            <li><a href='{{ item.name }}'>{{ item }}</a></li>
-        {% else %}
-            {% include 'menu/items.html' with items=item %}
-        {% endif %}
-    {% endfor %}
-</ul>
+{% for item in items %}
+    {% if item.name %}
+        <li><a href='{{ item.name }}'>{{ item }}</a></li>
+    {% else %}
+        <ul>{% include 'menu/items.html' with items=item %}</ul>
+    {% endif %}
+{% endfor %}

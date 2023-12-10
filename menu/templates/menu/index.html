@@ -8,7 +8,7 @@
     <body>
         {% if menus %}
             {% for menu in menus %}
-                <h3><a href='{{ menu }}'>{{ menu.name }}</a></h3>
+                <li><a href='{{ menu }}'>{{ menu.name }}</a></li>
             {% endfor %}
         {% else %}
             {% get_submenu menu_name item_name %}
