@@ -28,11 +28,28 @@ class MenuItem(models.Model):
             raise ValidationError(
                 'Название пункта меню также должно быть уникальным по отношению к названиям элементов основного меню.'
             )
-        if self.parent and self.parent.menu != self.menu:
-            raise ValidationError(
-                f'В качестве подменю может быть только тот пункт/подменю, '
-                f'основным меню которого является "{self.menu}"!'
-            )
+        if self.parent:
+            if self.parent.menu != self.menu:
+                raise ValidationError(
+                    f'В качестве подменю может быть только тот пункт/подменю, '
+                    f'основным меню которого является "{self.menu}"!'
+                )
+            elif self.parent.name == self.name:
+                raise ValidationError(
+                    'Пункт не может быть своим же пунктом/подменю!'
+                )
+
+            children = list(MenuItem.objects.filter(parent__name=self.name))
+            parent = self.parent.parent
+
+            if parent in children:
+                raise ValidationError(
+                    f'{self.name} не может быть подпунктом {parent.name}!'
+                )
+            if parent and self.name == parent.name:
+                raise ValidationError(
+                    f'{self.name} не может быть подпунктом {self.parent}!'
+                )
 
     def save(self, *args, **kwargs):
         self.clean()
@@ -42,5 +59,3 @@ class MenuItem(models.Model):
         ordering = ['id']
         verbose_name = 'Пункт меню'
         verbose_name_plural = 'Пункты меню'
-
-
