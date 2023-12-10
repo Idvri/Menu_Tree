@@ -1,0 +1,272 @@
+[
+  {
+    "model": "menu.menuitem",
+    "pk": 1,
+    "fields": {
+      "name": "Яичница",
+      "menu": 1,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 2,
+    "fields": {
+      "name": "Омлет",
+      "menu": 1,
+      "parent": 1
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 3,
+    "fields": {
+      "name": "Суп",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 4,
+    "fields": {
+      "name": "Салат",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 5,
+    "fields": {
+      "name": "Чай",
+      "menu": 4,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 6,
+    "fields": {
+      "name": "Пельмени",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 7,
+    "fields": {
+      "name": "Борщ",
+      "menu": 2,
+      "parent": 3
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 8,
+    "fields": {
+      "name": "Кофе",
+      "menu": 4,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 9,
+    "fields": {
+      "name": "Пирожное",
+      "menu": 5,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 10,
+    "fields": {
+      "name": "Мороженое",
+      "menu": 5,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 11,
+    "fields": {
+      "name": "Стейк",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 12,
+    "fields": {
+      "name": "Пицца",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 13,
+    "fields": {
+      "name": "Лимонад",
+      "menu": 4,
+      "parent": 8
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 14,
+    "fields": {
+      "name": "Торт",
+      "menu": 5,
+      "parent": 9
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 15,
+    "fields": {
+      "name": "Фруктовый коктейль",
+      "menu": 5,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 16,
+    "fields": {
+      "name": "Курица с овощами",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 17,
+    "fields": {
+      "name": "Гречка",
+      "menu": 2,
+      "parent": 3
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 18,
+    "fields": {
+      "name": "Эспрессо",
+      "menu": 4,
+      "parent": 8
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 19,
+    "fields": {
+      "name": "Шоколадный кекс",
+      "menu": 5,
+      "parent": 9
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 20,
+    "fields": {
+      "name": "Пудинг",
+      "menu": 5,
+      "parent": 14
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 21,
+    "fields": {
+      "name": "Паста",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 22,
+    "fields": {
+      "name": "Рисовая лапша",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 23,
+    "fields": {
+      "name": "Лимонный чай",
+      "menu": 4,
+      "parent": 8
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 24,
+    "fields": {
+      "name": "Шоколадный мусс",
+      "menu": 5,
+      "parent": 19
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 25,
+    "fields": {
+      "name": "Фруктовый салат",
+      "menu": 5,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 26,
+    "fields": {
+      "name": "Сэндвич",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 27,
+    "fields": {
+      "name": "Картофельное пюре",
+      "menu": 2,
+      "parent": null
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 28,
+    "fields": {
+      "name": "Апельсиновый сок",
+      "menu": 4,
+      "parent": 23
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 29,
+    "fields": {
+      "name": "Тирамису",
+      "menu": 5,
+      "parent": 24
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 30,
+    "fields": {
+      "name": "Ореховый торт",
+      "menu": 5,
+      "parent": 19
+    }
+  }
+]  

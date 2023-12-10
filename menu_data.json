@@ -1,0 +1,37 @@
+[
+  {
+    "model": "menu.menu",
+    "pk": 1,
+    "fields": {
+      "name": "Завтрак"
+    }
+  },
+  {
+    "model": "menu.menu",
+    "pk": 2,
+    "fields": {
+      "name": "Обед"
+    }
+  },
+  {
+    "model": "menu.menu",
+    "pk": 3,
+    "fields": {
+      "name": "Ужин"
+    }
+  },
+  {
+    "model": "menu.menu",
+    "pk": 4,
+    "fields": {
+      "name": "Напитки"
+    }
+  },
+  {
+    "model": "menu.menu",
+    "pk": 5,
+    "fields": {
+      "name": "Десерты"
+    }
+  }
+]
