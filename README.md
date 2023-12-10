@@ -3,8 +3,9 @@ Django App, которое реализовывает древовидное м�
 
 ### Установка и запуск (локально):
 - git clone https://github.com/Idvri/UpTraderTest.git;
-- python -m venv venv;
-- venv/Scripts/activate;
+- python3 -m venv venv;
+- venv/Scripts/activate (Windows);
+- source venv/bin/activate (Linux);
 - pip3 install -r requirements.txt;
 - python manage.py migrate;
 - python manage.py runserver.
