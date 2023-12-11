@@ -7,10 +7,12 @@ register = template.Library()
 
 @register.inclusion_tag('menu/items.html')
 def get_submenu(menu_name, item_name):
+    """Template tag, который возвращает нарисованное меню с учётом выбранных пунктов и подпунктов в интерфейсе."""
     items = MenuItem.objects.filter(menu__name=menu_name)
 
     def get_menu(first_menu: str = None, second_menu: list = None):
-
+        """Функция рекурсивно конструирует и возвращает, после конструирования,
+        меню с учётом его пунктов и подпунктов у пунктов."""
         if first_menu is None:
             menu = list(items.filter(parent__name=None))
             if second_menu is None:

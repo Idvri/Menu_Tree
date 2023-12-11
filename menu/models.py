@@ -4,12 +4,14 @@ from django.db import models
 
 # Create your models here.
 class Menu(models.Model):
+    """Модель, описывающая основное меню."""
     name = models.CharField('Название', max_length=50, unique=True)
 
     def __str__(self):
         return self.name
 
     def clean(self):
+        """Метод, который валидирует название меню в зависимости от существующих названий пунктов меню."""
         if MenuItem.objects.filter(name=self.name).exists():
             raise ValidationError(
                 'Название основного меню также должно быть уникальным по отношению к названиям пунктов меню.'
@@ -22,6 +24,7 @@ class Menu(models.Model):
 
 
 class MenuItem(models.Model):
+    """Модель, описывающая основное пункты меню."""
     name = models.CharField('Название', max_length=50, unique=True)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, verbose_name='Основное меню')
     parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Пункт/подменю', null=True, blank=True)
@@ -30,6 +33,7 @@ class MenuItem(models.Model):
         return self.name
 
     def clean(self):
+        """Метод, который валидирует название пункта меню в зависимости от существующих названий основных меню."""
         if Menu.objects.filter(name=self.name).exists():
             raise ValidationError(
                 'Название пункта меню также должно быть уникальным по отношению к названиям основных меню.'
@@ -55,6 +59,8 @@ class MenuItem(models.Model):
                 )
 
             def validate(child, parent):
+                """Функция, которая проверяет возможность пункта быть подпунктом другого пункта.
+                К примеру, (старший) пункт не может быть подпунктом своего же (младшего) подпункта."""
                 parent = parent.parent
 
                 if parent:
