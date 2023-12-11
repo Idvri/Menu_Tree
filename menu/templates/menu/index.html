@@ -7,20 +7,25 @@
     </head>
     <body>
         {% if menus %}
+            <hr>
             {% for menu in menus %}
                 <li><a href='{{ menu }}'>{{ menu.name }}</a></li>
             {% endfor %}
+            <hr>
         {% elif menu_name %}
-            ---------------------------------------------------------
+            <hr>
             {% get_submenu menu_name item_name %}
-            ---------------------------------------------------------
+            <hr>
             <li><a href='{{ menu_name }}'>На главную страницу текущего меню</a></li>
             <li><a href='/'>На главную страницу</a></li>
             <li><button onclick="goBack()">Назад</button></li>
-            ---------------------------------------------------------
+            <hr>
         {% else %}
+            <hr>
             <li>Hello world!</li>
+            <hr>
             <li><a href='/admin'>Создать меню</a></li>
+            <hr>
         {% endif %}
     </body>
 </html>

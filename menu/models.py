@@ -12,7 +12,7 @@ class Menu(models.Model):
     def clean(self):
         if MenuItem.objects.filter(name=self.name).exists():
             raise ValidationError(
-                'Название основного меню также должно быть уникальным по отношению к названиям пунктов/подменю.'
+                'Название основного меню также должно быть уникальным по отношению к названиям пунктов меню.'
             )
 
     class Meta:
@@ -24,7 +24,7 @@ class Menu(models.Model):
 class MenuItem(models.Model):
     name = models.CharField('Название', max_length=50, unique=True)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, verbose_name='Основное меню')
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='пункт/подменю', null=True, blank=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Пункт/подменю', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -32,17 +32,17 @@ class MenuItem(models.Model):
     def clean(self):
         if Menu.objects.filter(name=self.name).exists():
             raise ValidationError(
-                'Название пункта меню также должно быть уникальным по отношению к названиям элементов основного меню.'
+                'Название пункта меню также должно быть уникальным по отношению к названиям основных меню.'
             )
         elif self.parent:
             if self.parent.menu != self.menu:
                 raise ValidationError(
-                    f'В качестве подменю может быть только тот пункт/подменю, '
-                    f'основным меню которого является "{self.menu}"!'
+                    f'{self.name} не может быть подпунктом "{self.parent}", '
+                    f'так как их основные меню отличаются!'
                 )
             elif self.parent.name == self.name:
                 raise ValidationError(
-                    'Пункт не может быть своим же пунктом/подменю!'
+                    'Пункт не может быть своим же подпунктом!'
                 )
 
             menu_items = MenuItem.objects.all()
