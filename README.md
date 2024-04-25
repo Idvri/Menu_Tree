@@ -1,4 +1,4 @@
-# UpTraderTest
+# Menu Tree
 Django App, которое реализовывает древовидное меню (рекурсия).
 
 ### Stack: 
